@@ -1,11 +1,12 @@
 from django.contrib import admin
 
 # Importar las clases del modelo
-from administrativo.models import Estudiante, NumeroTelefonico
+from administrativo.models import Estudiante, NumeroTelefonico, Pais
 
 # Agregar la clase Estudiante para administrar desde
 # interfaz de administración
 # admin.site.register(Estudiante)
+
 
 # Se crea una clase que hereda
 # de ModelAdmin para el modelo
@@ -13,10 +14,11 @@ from administrativo.models import Estudiante, NumeroTelefonico
 class EstudianteAdmin(admin.ModelAdmin):
     # listado de atributos que se mostrará
     # por cada registro
-    # se deja de usar la representación (str) 
-    # de la clase 
-    list_display = ('nombre', 'apellido', 'cedula')
-    search_fields = ('nombre', 'cedula')
+    # se deja de usar la representación (str)
+    # de la clase
+    list_display = ("nombre", "apellido", "cedula")
+    search_fields = ("nombre", "cedula")
+
 
 # admin.site.register se lo altera
 # el primer argumento es el modelo (Estudiante)
@@ -27,19 +29,28 @@ admin.site.register(Estudiante, EstudianteAdmin)
 # interfaz de administración
 # admin.site.register(NumeroTelefonico)
 
+
 # Se crea una clase que hereda
 # de ModelAdmin para el modelo
 # NumeroTelefonico
 class NumeroTelefonicoAdmin(admin.ModelAdmin):
     # listado de atributos que se mostrará
     # por cada registro
-    # se deja de usar la representación (str) 
-    # de la clase 
-    list_display = ('telefono', 'tipo', 'estudiante')
-    # se agrega el atributo 
-    # raw_id_fields que permite acceder a una interfaz 
-    # para buscar los estudiantes y seleccionar el que 
+    # se deja de usar la representación (str)
+    # de la clase
+    list_display = ("telefono", "tipo", "estudiante")
+    # se agrega el atributo
+    # raw_id_fields que permite acceder a una interfaz
+    # para buscar los estudiantes y seleccionar el que
     # se desee
-    raw_id_fields = ('estudiante',)
+    raw_id_fields = ("estudiante",)
+
 
 admin.site.register(NumeroTelefonico, NumeroTelefonicoAdmin)
+
+
+class PaisAdmin(admin.ModelAdmin):
+    list_display = ("nombre", "capital", "numero_provincias", "numero_habitantes")
+
+
+admin.site.register(Pais, PaisAdmin)

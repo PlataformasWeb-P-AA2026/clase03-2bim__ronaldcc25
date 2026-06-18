@@ -1,20 +1,37 @@
-
 <h3>Número de estudiantes {{ numero_estudiantes }}</h3>
 
 <ul>
- {% for e in estudiantes %}
+    {% for e in estudiantes %}
 
-  <li>
-    {{e}} - [<a href="{% url 'obtener_estudiante' e.id %}">ver</a>] - 
-    [<a href="{% url 'editar_estudiante' e.id %}">editar</a>] -
-    [<a href="{% url 'eliminar_estudiante' e.id %}" 
-      onclick="return confirm('¿Está seguro de la eliminación?')" >
-      eliminar</a>]
-  </li>
+    <li>
+        {{e}} - [<a href="{% url 'obtener_estudiante' e.id %}">ver</a>] - [<a
+            href="{% url 'editar_estudiante' e.id %}"
+            >editar</a
+        >] - [<a
+            href="{% url 'eliminar_estudiante' e.id %}"
+            onclick="return confirm('¿Está seguro de la eliminación?');"
+        >
+            eliminar</a
+        >]
+    </li>
 
-{% endfor %} 
+    {% endfor %}
 </ul>
 
 <br />
 [<a href="{% url 'crear_estudiante' %}">agregar estudiante</a>]
 
+<hr />
+
+<h3>Países</h3>
+
+<ul>
+    {% for p in paises %}
+
+    <li>{{p.nombre}} - [<a href="{% url 'obtener_pais' p.id %}">ver</a>]</li>
+
+    {% endfor %}
+</ul>
+
+<br />
+[<a href="{% url 'crear_pais' %}">agregar país</a>]

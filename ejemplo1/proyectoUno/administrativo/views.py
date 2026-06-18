@@ -55,9 +55,10 @@ def listadoEstudiantesDos(request):
 
 def listadoEstudiantesTelefono(request):
     estudiantes = Estudiante.objects.all()
-    mis_numeros_telefonicos = NumeroTelefonico.objects.all()
+    titulo = "Listado de estudiantes de mi aplicación"
     informacion_template = {
         "estudiantes": estudiantes,
-        "mis_numeros_telefonicos": mis_numeros_telefonicos,
+        "numero_estudiantes": len(estudiantes),
+        "mititulo": titulo,
     }
-    return render(request, "listadoEstudiantesTres.html", informacion_template)
+    return render(request, "listadoEstudiantes.html", informacion_template)

@@ -1,0 +1,14 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Detalles del País</title>
+    </head>
+    <body>
+        <h1>Detalles del País</h1>
+        <p>Nombre: {{ pais.nombre }}</p>
+        <p>Capital: {{ pais.capital }}</p>
+        <p>Número de Provincias: {{ pais.numero_provincias }}</p>
+        <p>Número de Habitantes: {{ pais.numero_habitantes }}</p>
+        <a href="{% url 'index' %}">Volver al inicio</a>
+    </body>
+</html>
