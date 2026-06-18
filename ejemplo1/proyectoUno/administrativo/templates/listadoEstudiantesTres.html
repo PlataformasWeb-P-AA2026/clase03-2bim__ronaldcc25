@@ -1,0 +1,18 @@
+<!--
+Presentar listado de estudiantes que presente el id - nombre - numeroTotalTelefonosEstudiantes
+-->
+
+<h3>{{ mititulo }}</h3>
+Número de estudiantes {{ numero_estudiantes }}
+<hr />
+<br />
+
+<ul>
+    {% for e in estudiantes %}
+
+    <li>{{e.id}} - {{e.nombre}} - telefonos({{e.obtenerCantidadNumeros}})</li>
+
+    {% endfor %}
+</ul>
+
+<hr />
